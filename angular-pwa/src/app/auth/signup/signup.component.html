@@ -1,17 +1,28 @@
 <div class="row" appDropDownDirective>
   <div class="col-xs-12 col-lg-8 col-sm-6 col-md-4 offset-sm-1 offset-md-2">
-      <form (ngSubmit) = "onSignup()" #signupForm = "ngForm">
-          <div class="form-group">
-            <label for="email" appHighlight>E-mail</label>
-            <input type="text" class = "form-control" name = "email" ngModel >
-          </div>
-      
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password"  class = "form-control"name = "password" ngModel appHighlight>
-          </div>
-          <button type="submit" class="btn btn-primary">Sign up</button>
-        </form>
+    <form (ngSubmit)="onSignup()" #signupForm="ngForm">
+
+      <div class="form-group">
+        <label for="firstName" appHighlight>First Name</label>
+        <input type="text" class="form-control" name="firstName" ngModel>
+      </div>
+
+      <div class="form-group">
+        <label for="lastName" appHighlight>LastName</label>
+        <input type="text" class="form-control" name="lastName" ngModel>
+      </div>
+
+      <div class="form-group">
+        <label for="email" appHighlight>E-mail</label>
+        <input type="text" class="form-control" name="email" ngModel>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" ngModel appHighlight>
+      </div>
+      <button type="submit" class="btn btn-primary">Sign up</button>
+    </form>
   </div>
-  
+
 </div>

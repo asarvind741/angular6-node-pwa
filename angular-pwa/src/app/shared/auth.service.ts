@@ -5,16 +5,22 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 @Injectable()
 
-export class AuthService {
+export class AuthService1 {
 
     constructor( private httpClient: HttpClient ){ }
 
-    signup(){
+    signup(firstName, lastName, email, password){
+        const data = {
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            password: password
+        }
         const headers = new HttpHeaders();
         headers.append('Content-type', 'application/json');
 
-        this.httpClient.post(`${environment.apiUrl}/api/user/signup`, 
-        {})
+        return this.httpClient.post(`${environment.apiUrl}/api/user/signup`, data, 
+        {observe: 'body', headers: headers});
     }
 
 }
