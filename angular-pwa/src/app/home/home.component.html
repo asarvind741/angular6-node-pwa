@@ -1,0 +1,16 @@
+<div>
+  <h5>Hey I am home</h5>
+  <button class="btn btn-primary" (click) = "onAddNew()">Add New Recipe</button>
+  <div class="row" *ngFor="let item of recipes; let i = index">
+    <div class="card" style="background-color: red; width:150px; height: 150px;
+     padding: 10px; color: white; margin:5px">
+      <p>{{item.name}}</p>
+      <button class="btn btn-primary" (click) =  "onDelete(i)">Delete</button>
+    </div>
+  </div>
+</div>
+
+<!-- 
+<ng-template #nothing>
+  <p>Hello World Arvind Here..</p>
+</ng-template>  -->
