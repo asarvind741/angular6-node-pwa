@@ -7,9 +7,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 export class AuthService1 {
 
-    constructor( private httpClient: HttpClient ){ }
+    constructor(private httpClient: HttpClient) { }
 
-    signup(firstName, lastName, email, password){
+    signup(firstName, lastName, email, password) {
         const data = {
             firstName: firstName,
             lastName: lastName,
@@ -19,8 +19,16 @@ export class AuthService1 {
         const headers = new HttpHeaders();
         headers.append('Content-type', 'application/json');
 
-        return this.httpClient.post(`${environment.apiUrl}/api/user/signup`, data, 
-        {observe: 'body', headers: headers});
+        return this.httpClient.post(`${environment.apiUrl}/api/user/signup`, data,
+            { observe: 'body', headers: headers });
     }
 
+
+    activateAccount(token) {
+        console.log('token')
+        const headers = new HttpHeaders();
+        headers.append('Content-type', 'application/json');
+        return this.httpClient.put(`${environment.apiUrl}/api/user/activate/${token}`,
+             { observe: 'response', headers: headers })
+    }
 }

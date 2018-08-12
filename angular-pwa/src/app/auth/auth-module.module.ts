@@ -6,6 +6,7 @@ import { SiginComponent } from 'src/app/auth/sigin/sigin.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AuthService1 } from 'src/app/shared/auth.service';
 import { from } from 'rxjs/internal/observable/from';
+import { ActivateComponent } from './activate/activate.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { from } from 'rxjs/internal/observable/from';
   ],
   declarations: [
     SignupComponent,
-    SiginComponent
+    SiginComponent,
+    ActivateComponent
   ],
   providers: [
     AuthService1

@@ -1,13 +1,17 @@
 const mongoose = require('mongoose');
 // const validator = require('validator')
 const validator = require('validator');
-const sha256 = require('sha256');
+// const sha256 = require('sha256');
+
+const bcrypt = require('bcrypt-nodejs');
+const salt = bcrypt.genSaltSync(10);
 
 const Schema = mongoose.Schema;
 
 let hashPassword = (password) => {
 
-    return sha256(password);
+    // return sha256(password);
+    return bcrypt.hashPassword(password, salt);
 }
 
 let userSchema = new Schema({
@@ -43,8 +47,17 @@ let userSchema = new Schema({
         password: {
         type: String,
         required: true,
-        set: hashPassword
+        // set: hashPassword
 
+    },
+    active: {
+        type: Boolean,
+        required: true,
+        default: false,
+    },
+    temporaryToken: {
+        type: String,
+        required: true
     }
 }, { timestamps: true })
 
